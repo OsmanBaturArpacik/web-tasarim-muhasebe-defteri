@@ -1,0 +1,4 @@
+id,user_id,date,type,category_id,amount,note
+1,2,2025-06-18,income,1,5000,Maaş ödemesi
+2,2,2025-06-19,expense,2,200,Market alışverişi
+3,4,2025-06-20,expense,3,100,Otobüs bileti

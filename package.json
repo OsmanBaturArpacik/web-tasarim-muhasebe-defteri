@@ -1,0 +1,10 @@
+{
+  "name": "web-tasarim",
+  "version": "1.0.0",
+  //"scripts": {
+  //  "start": "live-server WebTasarim"
+  //},
+  "dependencies": {
+    "papaparse": "^5.5.3"
+  }
+}
