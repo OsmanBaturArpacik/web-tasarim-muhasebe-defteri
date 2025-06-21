@@ -14,6 +14,15 @@ const IncomeExpense = {
         this.renderUI();
     },
 
+    render() {
+        return `
+        <div id="transaction-list">
+            ${renderTransactionTable(this.transactions, this.categories)}
+            ${renderCategoryModal()}
+        </div>
+    `;
+    },
+
     async loadDataFromServer() {
         try {
             this.transactions = await transactionApi.fetchTransactions(this.userId);
