@@ -1,4 +1,7 @@
-export function clearInput(id) {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
+export function updateCategorySelect(selectElement, categories, type) {
+    const filtered = categories.filter(c => c.type === type);
+    selectElement.innerHTML = `
+        <option value="" selected disabled>Kategori seçin</option>
+        ${filtered.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}
+    `;
 }

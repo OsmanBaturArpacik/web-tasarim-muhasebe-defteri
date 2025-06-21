@@ -1,4 +1,5 @@
-import IncomeExpense from '../modules/incomeExpense.js';
+import IncomeExpense from '../modules/IncomeExpense/incomeExpense.js';
+import Report from '../modules/Report/report.js';
 
 export async function createContent(activePage = 'homepage') {
     switch (activePage) {
@@ -8,8 +9,10 @@ export async function createContent(activePage = 'homepage') {
             setTimeout(() => IncomeExpense.setupEvents(), 0);  // eventleri kur
             return html;
         case 'report':
-            // benzer
-            return `<div>Raporlar</div>`;
+            await Report.init();
+            const reportHTML = Report.render();
+            setTimeout(() => Report.setupEvents(), 0); // Eventleri bağla
+            return reportHTML;
         default:
             return `<div>🏠 Ana Sayfa</div>`;
     }
