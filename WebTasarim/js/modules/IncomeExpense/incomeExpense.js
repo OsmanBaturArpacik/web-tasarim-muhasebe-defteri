@@ -115,15 +115,17 @@ const IncomeExpense = {
                 category_id: document.getElementById('newCategory').value,
             };
 
-            if (!newTx.note || !newTx.amount || !newTx.category_id) {
+            if (!newTx.note || !newTx.amount || !newTx.type || !newTx.category_id) {
                 return alert('Lütfen tüm alanları doldurun.');
             }
 
             await this.addTransaction(newTx);
 
-            // temizle
+            // Temizle
             document.getElementById('newNote').value = '';
             document.getElementById('newAmount').value = '';
+            document.getElementById('newType').value = '';
+            this.updateCategorySelect(document.getElementById('newCategory'), this.categories, '');
         });
 
         // Modal gösterme
@@ -219,33 +221,6 @@ const IncomeExpense = {
                     .join('');
             }
         });
-
-        // Alan Kontrolü
-        document.getElementById('createBtn').addEventListener('click', async () => {
-            const newTx = {
-                id: crypto.randomUUID(),
-                user_id: this.userId,
-                date: new Date().toISOString().split('T')[0],
-                note: document.getElementById('newNote').value.trim(),
-                amount: document.getElementById('newAmount').value,
-                type: document.getElementById('newType').value,
-                category_id: document.getElementById('newCategory').value,
-            };
-
-            if (!newTx.note || !newTx.amount || !newTx.type || !newTx.category_id) {
-                return alert('Lütfen tüm alanları doldurun.');
-            }
-
-            await this.addTransaction(newTx);
-
-            // Temizle
-            document.getElementById('newNote').value = '';
-            document.getElementById('newAmount').value = '';
-            document.getElementById('newType').value = '';
-            this.updateCategorySelect(document.getElementById('newCategory'), this.categories, '');
-        });
-
-
     }
 };
 

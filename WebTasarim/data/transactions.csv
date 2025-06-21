@@ -1,5 +1,5 @@
 id,user_id,date,type,category_id,amount,note
-1,105,2025-06-18,income,4,5000,Maaş ödemesi
+1,105,2025-06-18,income,4,4520.5,Maaş ödemesi alındı
 2,105,2025-06-19,expense,5,200,Market alışverişi
 4,105,2025-06-20,expense,5,1230,asdsad
 1750510131652,105,2025-06-21,income,4,12313,Maaş yattı
