@@ -1,11 +1,16 @@
-function createContent(activePage = 'homepage') {
+import IncomeExpense from '../modules/incomeExpense.js';
+
+export async function createContent(activePage = 'homepage') {
     switch (activePage) {
         case 'incomeExpense':
-            return `<div class="p-4">💰 Gelir/Gider işlemleri içeriği buraya gelecek.</div>`;
+            await IncomeExpense.init();
+            const html = IncomeExpense.render();
+            setTimeout(() => IncomeExpense.setupEvents(), 0);  // eventleri kur
+            return html;
         case 'report':
-            return `<div class="p-4">📊 Raporlar içeriği buraya gelecek.</div>`;
-        case 'homepage':
+            // benzer
+            return `<div>Raporlar</div>`;
         default:
-            return `<div class="p-4">🏠 Ana sayfa içeriği buraya gelecek.</div>`;
+            return `<div>🏠 Ana Sayfa</div>`;
     }
 }

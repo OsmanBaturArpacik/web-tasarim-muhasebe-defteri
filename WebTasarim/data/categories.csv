@@ -2,3 +2,12 @@ id,user_id,type,name
 1,2,income,Maaş
 2,2,expense,Market
 3,4,expense,Ulaşım
+4,5,income,Maaş ödemesi
+5,5,expense,Market alışverişi
+6,5,expense,Otobüs bileti
+8,5,income,Bireysel Ödeme
+9,5,expense,Maaş Ödemesi
+1750510006371,5,income,test cat
+1750511164850,5,income,test
+1750511267865,5,income,test category
+1750511433130,5,income,test mat

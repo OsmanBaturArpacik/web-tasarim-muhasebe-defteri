@@ -1,10 +1,11 @@
 {
   "name": "web-tasarim",
   "version": "1.0.0",
-  //"scripts": {
-  //  "start": "live-server WebTasarim"
-  //},
   "dependencies": {
-    "papaparse": "^5.5.3"
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "papaparse": "^5.5.3",
+    "path": "^0.12.7"
   }
 }

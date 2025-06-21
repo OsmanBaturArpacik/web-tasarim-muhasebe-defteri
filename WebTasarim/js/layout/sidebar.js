@@ -1,4 +1,4 @@
-function createSidebar(active = 'homepage') {
+export function createSidebar(active = 'homepage') {
     const buttons = [
         { id: 'homepage', label: 'Ana Sayfa' },
         { id: 'incomeExpense', label: 'Gelir/Gider İşlemleri' },
@@ -16,28 +16,24 @@ function createSidebar(active = 'homepage') {
     `;
 }
 
-function setupSidebarEvents() {
+export function setupSidebarEvents(renderApp) {
     const sidebar = document.querySelector('.border-end');
     const buttons = sidebar.querySelectorAll('button[data-id]');
 
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const newPage = button.dataset.id;
+    buttons.forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const newPage = btn.dataset.id;
 
-            // Aktif/pasif sınıfları güncelle
-            buttons.forEach(btn => {
-                btn.classList.remove('btn-primary');
-                btn.classList.add('btn-outline-primary');
+            buttons.forEach(b => {
+                b.classList.remove('btn-primary');
+                b.classList.add('btn-outline-primary');
             });
+            btn.classList.remove('btn-outline-primary');
+            btn.classList.add('btn-primary');
 
-            button.classList.remove('btn-outline-primary');
-            button.classList.add('btn-primary');
-
-            // Sayfa içeriğini ve sidebar'ı güncelle
-            renderApp(newPage);
+            await renderApp(newPage);
         });
     });
-
 
     const logoutBtn = sidebar.querySelector('#logoutBtn');
     if (logoutBtn) {
